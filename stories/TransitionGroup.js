@@ -7,6 +7,8 @@ import CSSTransitionGroupFixture from './CSSTransitionGroupFixture';
 import NestedTransition from './NestedTransition';
 import StoryFixture from './StoryFixture';
 import Fade, { FADE_TIMEOUT } from './transitions/Fade';
+import Body from './transitions/Body';
+
 
 storiesOf('Css Transition Group', module)
   .add('Animates on all', () => (
@@ -65,6 +67,15 @@ storiesOf('Css Transition Group', module)
       <DynamicTransition />
     </StoryFixture>
   ))
+  .add('bug test', () => (
+    <StoryFixture
+      description={`
+        Should not work
+      `}
+    >
+      <Body />
+    </StoryFixture>
+  ))
   .add('Re-entering while leaving', () => (
     <StoryFixture
       description={`
@@ -74,6 +85,7 @@ storiesOf('Css Transition Group', module)
       <ReEnterTransition />
     </StoryFixture>
   ))
+  
   .add('Nested Transitions', () => <NestedTransition />);
 
 class DynamicTransition extends React.Component {
